@@ -137,4 +137,20 @@ export const Fields = {
 		regex: '/^([0]?[0-9]|[1-5][0-9]|60)$/',
 		default: '2',
 	},
+	SettingSetting: {
+		type: 'textinput',
+		label: 'Setting',
+		id: 'setting',
+		tooltip: 'Must be exactly as it appears in API documentation',
+		regex: '/^[a-zA-Z0-9_-]*$/',
+		default: '',
+	},
+	SettingValue: {
+		type: 'textinput',
+		label: 'Value',
+		id: 'value',
+		tooltip: 'Must be exactly as it appears in API documentation',
+		useVariables: true,
+		default: '',
+	},
 }

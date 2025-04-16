@@ -120,5 +120,15 @@ export function updateActions() {
 				this.sendCommand(`setsetting/RecordToDrive${options.id}=${options.mode}`)
 			},
 		},
+		updateSetting: {
+			name: 'Update Setting',
+			options: [
+				Fields.SettingSetting,
+				Fields.SettingValue
+			],
+			callback: ({options}) => {
+				this.updateSetting(options.setting, options.value);
+			}
+		}
 	})
 }

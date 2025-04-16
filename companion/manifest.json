@@ -1,9 +1,9 @@
 {
-	"id": "sounddevices-pixnet",
-	"name": "sounddevices-pixnet",
-	"shortname": "pixnet",
+	"id": "sounddevices-pixnet2",
+	"name": "sounddevices-pixnet2",
+	"shortname": "pixnet2",
 	"description": "Module to control Video Devices PIX250i/260i/270i and Sound Devices 970 via Companion",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-sounddevices-pixnet.git",
 	"bugs": "https://github.com/bitfocus/companion-module-sounddevices-pixnet/issues",
@@ -21,6 +21,6 @@
 		"entrypoint": "../src/index.js"
 	},
 	"manufacturer": "Sound Devices",
-	"products": ["PIXNET"],
+	"products": ["PIXNET2"],
 	"keywords": ["Recording"]
 }

@@ -147,6 +147,31 @@ class SounddevicesPixnetInstance extends InstanceBase {
 			this.log('error', 'Empty command')
 		}
 	}
+
+	/**
+	 * Update a setting on the device.
+	 *
+	 * @param {string} setting - the setting
+	 * @param {string} value - the value
+	 * @public
+	 * @since 1.0.0
+	 */
+	sendSetting(setting,value="") {
+		if (setting !== undefined && this.config.host !== undefined) {
+			let cmd = encodeURI('http://' + this.config.host + '/sounddevices/setsetting/' + setting + '=' + value)
+			this.log('debug', `HTTP POST: ${cmd}`)
+
+			Rest.Post(cmd, {}, (err, result) => {
+				if (err !== null) {
+					this.updateStatus('unknown_error', `HTTP POST Request failed (${result.error.code})`)
+				} else {
+					this.updateStatus('ok')
+				}
+			})
+		} else {
+			this.log('error', 'Empty command')
+		}
+	}
 }
 
 runEntrypoint(SounddevicesPixnetInstance, [])
