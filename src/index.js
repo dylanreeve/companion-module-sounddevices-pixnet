@@ -156,7 +156,8 @@ class SounddevicesPixnetInstance extends InstanceBase {
 	 * @public
 	 * @since 1.0.0
 	 */
-	sendSetting(setting,value="") {
+	sendSetting(setting, value = '') {
+		this.log('info', `Setting: ${setting} = ${value}`)
 		if (setting !== undefined && this.config.host !== undefined) {
 			let cmd = encodeURI('http://' + this.config.host + '/sounddevices/setsetting/' + setting + '=' + value)
 			this.log('debug', `HTTP POST: ${cmd}`)
@@ -164,6 +165,7 @@ class SounddevicesPixnetInstance extends InstanceBase {
 			Rest.Post(cmd, {}, (err, result) => {
 				if (err !== null) {
 					this.updateStatus('unknown_error', `HTTP POST Request failed (${result.error.code})`)
+					this.log('error', `HTTP POST Request failed (${result.error.code})`)
 				} else {
 					this.updateStatus('ok')
 				}

@@ -122,13 +122,15 @@ export function updateActions() {
 		},
 		updateSetting: {
 			name: 'Update Setting',
-			options: [
-				Fields.SettingSetting,
-				Fields.SettingValue
-			],
-			callback: ({options}) => {
-				this.updateSetting(options.setting, options.value);
-			}
-		}
+			options: [Fields.SettingSetting, Fields.SettingValue],
+			callback: async ({ options }) => {
+				// Parse the value field to resolve variables
+				const parsed = await this.parseVariablesInString(options.value)
+				const resolvedValue = parsed
+
+				// Pass the resolved value to sendSetting
+				this.sendSetting(options.setting, resolvedValue)
+			},
+		},
 	})
 }

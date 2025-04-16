@@ -150,7 +150,10 @@ export const Fields = {
 		label: 'Value',
 		id: 'value',
 		tooltip: 'Must be exactly as it appears in API documentation',
-		useVariables: true,
+		useVariables: {
+			allowCustom: true, // Allow custom variables
+			allowInstance: true, // Allow instance-specific variables
+		},
 		default: '',
 	},
 }
